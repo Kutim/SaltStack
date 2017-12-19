@@ -3,7 +3,7 @@ services:
 
   master:
     build: ./master
-    command: ["salt-master", "-l", "debug"]
+    command: ["/usr/bin/supervisord"]
     ports:
       - "4505:4505"
       - "4506:4506"
