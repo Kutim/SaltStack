@@ -1,0 +1,14 @@
+version: "3"
+services:
+
+  master:
+    build: ./master
+    command: ["salt-master", "-l", "debug"]
+    ports:
+      - "4505:4505"
+      - "4506:4506"
+  slave:
+    build: ./slave
+    command: ["salt-minion", "-l", "debug"]
+    external_links:
+      - master:salt
